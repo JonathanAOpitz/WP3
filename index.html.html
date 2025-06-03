@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fassadenbegrünung Hamburg</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>Grüne Städte, gesunde Zukunft</h1>
+      <p>Fassadenbegrünung in Hamburg – Ästhetik trifft Klimaresilienz.</p>
+      <a href="#info" class="button">Mehr erfahren</a>
+    </div>
+  </header>
+
+  <main id="info" class="info">
+
+    <section class="text-block">
+      <h2>Warum?</h2>
+      <p>
+        Fassadenbegrünung hilft, urbane Hitzeinseln zu reduzieren, indem sie natürliche Kühlung durch Verdunstung bereitstellt. Sie ist ein zentraler Bestandteil nachhaltiger Stadtentwicklung in Hamburg.
+      </p>
+    </section>
+
+    <section class="text-block">
+      <h2>Wozu?</h2>
+      <p>
+        Begrünte Fassaden dienen als natürliche Isolierung und tragen zur Energieeinsparung bei. Zusätzlich schaffen sie Lebensraum für Insekten und verbessern die Luftqualität.
+      </p>
+    </section>
+
+    <section class="text-block">
+      <h2>Für wen?</h2>
+      <p>
+        Ob Wohnhäuser, Schulen oder Bürogebäude – jede Fassade kann begrünt werden. Besonders in Hamburgs dicht besiedelten Vierteln bietet dies eine enorme Chance.
+      </p>
+    </section>
+
+    <section class="text-block">
+      <h2>Was bringt’s konkret?</h2>
+      <p>
+        Begrünte Fassaden senken die Umgebungstemperatur spürbar – gerade in heißen Sommern. Studien zeigen, dass Oberflächentemperaturen um bis zu 10 °C gesenkt werden können. Zudem absorbieren Pflanzen Feinstaub, reduzieren Lärm und steigern die Wohn- und Arbeitsqualität im städtischen Raum.
+      </p>
+    </section>
+
+    <section class="text-block">
+      <h2>Förderung in Hamburg</h2>
+      <p>
+        Die Stadt Hamburg unterstützt Fassadenbegrünung durch finanzielle Förderprogramme wie das <strong>Förderprogramm "Grün hoch 3"</strong>. Private Hauseigentümer:innen, Genossenschaften und Unternehmen können Zuschüsse beantragen.
+      </p>
+    </section>
+
+    <section class="text-block">
+      <h2>Pflege & Umsetzung</h2>
+      <p>
+        Die Installation kann modular erfolgen – von einfachen Rankhilfen bis zu komplexen vorgehängten Fassadensystemen mit automatischer Bewässerung. Die Pflege ist meist gering: Viele Pflanzen benötigen kaum zusätzliches Gießen.
+      </p>
+    </section>
+
+  </main>
+
+  <section class="features">
+    <div class="feature">
+      <h3>🌿 Nachhaltigkeit</h3>
+      <p>Grüne Fassaden helfen, CO₂ zu binden, die Luft zu reinigen und die städtische Artenvielfalt zu fördern.</p>
+    </div>
+    <div class="feature">
+      <h3>🌇 Stadtbild</h3>
+      <p>Sie verwandeln triste Betonwände in lebendige, attraktive Flächen und steigern das Wohlbefinden der Anwohner.</p>
+    </div>
+    <div class="feature">
+      <h3>💧 Wassermanagement</h3>
+      <p>Begrünte Flächen speichern Regenwasser, entlasten die Kanalisation und wirken Überschwemmungen entgegen.</p>
+    </div>
+  </section>
+
+  <section class="calculator">
+    <h2>Ersparnisrechner</h2>
+    <form id="calculatorForm">
+      <label for="area">Begrünte Fassadenfläche (in m²):</label>
+      <input type="number" id="area" name="area" min="1" required />
+
+      <button type="submit">Berechnen</button>
+    </form>
+    <div class="result" id="result"></div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Fassadenbegrünung Hamburg. Erstellt von Jonathan A. Opitz.</p>
+  </footer>
+
+  <script>
+    document.getElementById('calculatorForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const area = parseFloat(document.getElementById('area').value);
+
+      // Beispiel: 50 kWh Ersparnis pro m² und 0,30 € pro kWh (fest)
+      const energySaved = area * 50; // kWh
+      const costPerKWh = 0.30; // Euro
+      const moneySaved = energySaved * costPerKWh;
+
+      const resultText = `Mit ${area} m² begrünten Fassaden sparen Sie ca. ${energySaved.toFixed(0)} kWh Energie und damit ungefähr ${moneySaved.toFixed(2)} € pro Jahr.`;
+      document.getElementById('result').textContent = resultText;
+    });
+
+    // Scroll Animation: Fade-In
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    document.querySelectorAll('.text-block').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
+

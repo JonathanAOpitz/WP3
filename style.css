@@ -1,0 +1,245 @@
+:root {
+  --moos-dunkel: #2b3a21;
+  --moos-mittel: #3b5a30;
+  --moos-hell: #6ea84f;
+  --weiß: #f0f0f0;
+  --button-bg: #6ea84f;
+  --button-hover: #5a8a3f;
+  --text-color: #d9e4d8;
+  --overlay-dark: rgba(29, 46, 31, 0.85);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--moos-dunkel);
+  color: var(--text-color);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+a {
+  color: var(--weiß);
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  color: var(--moos-hell);
+  font-weight: 800;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Header Hero */
+.hero {
+  position: relative;
+  height: 70vh;
+  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--weiß);
+  padding: 0 1rem;
+  border-radius: 0 0 3rem 3rem;
+}
+
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--overlay-dark);
+  z-index: 1;
+  border-radius: 0 0 3rem 3rem;
+}
+
+.hero .content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  background-color: var(--button-bg);
+  color: var(--weiß);
+  padding: 0.75rem 2rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--button-hover);
+}
+
+/* Info Sektion */
+.info {
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.text-block {
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.text-block.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.text-block p {
+  font-size: 1.125rem;
+  margin-top: 0.5rem;
+  color: var(--text-color);
+}
+
+/* Features */
+.features {
+  background-color: var(--moos-mittel);
+  padding: 3rem 2rem;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+  color: var(--weiß);
+  max-width: 900px;
+  margin: 0 auto 4rem auto;
+  border-radius: 1rem;
+}
+
+.feature {
+  flex: 1 1 250px;
+  background: var(--moos-dunkel);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(110,168,79,0.3);
+  text-align: center;
+}
+
+.feature h3 {
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+/* Ersparnisrechner */
+.calculator {
+  max-width: 500px;
+  margin: 0 auto 4rem auto;
+  background: var(--moos-mittel);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(110,168,79,0.3);
+}
+
+.calculator h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--weiß);
+}
+
+.calculator label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--weiß);
+  font-weight: 600;
+}
+
+.calculator input {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.calculator button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--button-bg);
+  color: var(--weiß);
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.calculator button:hover {
+  background-color: var(--button-hover);
+}
+
+.result {
+  margin-top: 1.5rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  text-align: center;
+  color: var(--weiß);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background-color: var(--moos-dunkel);
+  color: var(--weiß);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--moos-mittel);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .features {
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero {
+    height: 50vh;
+  }
+
+  .button {
+    padding: 0.6rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .calculator {
+    padding: 1.5rem;
+  }
+}
